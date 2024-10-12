@@ -11,7 +11,7 @@ import classes from './layout.module.css'
 const MenuLayout = ({ children }: PropsWithChildren) => {
     const [opened, { toggle, close }] = useDisclosure(false)
     const path = usePathname()
-    
+
     useEffect(() => {
         if (["/menu" !== path]) {
             close()
@@ -34,7 +34,7 @@ const MenuLayout = ({ children }: PropsWithChildren) => {
                 className={classes.app}
                 padding={path === "/menu" ? "md" : 0}
                 navbar={path === "/menu" ? <MenuNavbar opened={opened} close={close} /> : undefined}
-                footer={<MenuFooter toggle={toggle} />}>
+                footer={path === "/menu/welcome" ? undefined : <MenuFooter toggle={toggle} />}>
                 {children}
             </AppShell >
         </MantineProvider >
