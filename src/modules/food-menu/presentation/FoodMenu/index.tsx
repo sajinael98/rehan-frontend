@@ -3,6 +3,8 @@ import { Group, Stack, Text, ThemeIcon } from '@mantine/core';
 import { Item } from '@modules/food-menu/types';
 import Image from 'next/image';
 import ItemCard from '../Item';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 interface FoodMenuProps {
     search: string;
@@ -16,12 +18,23 @@ interface CategoryProps {
     items: Item[];
 }
 
+const variants = {
+    initial: {
+        translateX: "-100vh"
+    },
+    animate: {
+        translateX: 0
+    }
+}
 const Category = ({ category, items }: CategoryProps) => {
+    const ref = useRef(null)
+    const isCardRefInView = useInView(ref, { once: true })
+    const animate = isCardRefInView ? 'animate' : 'initial'
 
-    return <Stack mb='md' id={category.name}>
+    return <Stack mb='md' id={category.name} ref={ref}>
         <Group
             spacing="sm"
-           
+
             position='right'>
             <Text
                 c="white"
@@ -36,7 +49,12 @@ const Category = ({ category, items }: CategoryProps) => {
             </ThemeIcon>
         </Group>
         {
-            items.map(item => <ItemCard key={item.name} item={item} />)
+            items.map((item, index) => <motion.div variants={variants} initial='initial' animate={animate} key={item.name} transition={{
+                delay: 0.1 * index,
+                duration: 0.5
+            }}>
+                <ItemCard item={item} />
+            </motion.div>)
         }
     </Stack>
 }

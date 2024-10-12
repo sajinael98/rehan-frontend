@@ -29,6 +29,7 @@ const MenuNavbar = ({ opened, close }: MenuNavbarProps) => {
                             variant='subtle'
                             mb="md"
                             component='a'
+                            onClick={close}
                             href={`#${CATEGORIES[category].name}`}
                             rightIcon={<ThemeIcon pos="relative" bg="transparent">
                                 <Image src={`/images/icons/Vector${index + 1}.png`} alt={CATEGORIES[category].name} fill />
