@@ -45,7 +45,7 @@ export const accessControlPorvider: AccessControlProvider = {
       }
       const permission = `${tempAction.toUpperCase()}_${resource?.toUpperCase()}`;
       return {
-        can: permissions.includes(permission),
+        can: permissions?.includes(permission),
       };
     }
     return {

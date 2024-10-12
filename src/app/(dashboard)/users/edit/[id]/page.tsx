@@ -81,14 +81,14 @@ const EditUserPage = () => {
                   <Button leftIcon={<IconMenu2 />}>Menu</Button>
                 </Menu.Target>
                 <Menu.Dropdown>
-                  <Authenticated roles={['Admin']}>
                     <Menu.Item onClick={navigateToRoleAssign}>
                       {" "}
                       Role Assignment
                     </Menu.Item>
+                  <Authenticated roles={['Admin']}>
                   </Authenticated>
-                  <Authenticated roles={['System User']}>
                     <Menu.Item onClick={open}> Change Password</Menu.Item>
+                  <Authenticated roles={['System User']}>
                   </Authenticated>
                 </Menu.Dropdown>
               </Menu>

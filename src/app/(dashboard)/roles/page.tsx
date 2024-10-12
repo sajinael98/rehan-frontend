@@ -31,7 +31,7 @@ const RolesListPage = () => {
               }}
             >
               <EditButton
-                onClick={() => modalForm.editHandler(getValue() as number)}
+                onClick={() => {}}
               />
               <DeleteButton recordItemId={getValue() as number} />
             </div>
@@ -61,7 +61,7 @@ const RolesListPage = () => {
       <RoleModalForm modalForm={modalForm as any} />
       <List
         canCreate
-        createButtonProps={{ onClick: () => modalForm.createHandler() }}
+        createButtonProps={{ onClick: () => {} }}
       >
         <Table
           headerGroups={getHeaderGroups()}

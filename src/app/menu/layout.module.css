@@ -1,0 +1,21 @@
+.app {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/images/welcome.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: calc(100% + 80px) ;
+    z-index: 0;
+}
+
+.app :is(textarea, input){
+    font-size: 16px;
+}
+.app main{
+    backdrop-filter: blur(10px);
+    scroll-behavior: smooth;
+}
